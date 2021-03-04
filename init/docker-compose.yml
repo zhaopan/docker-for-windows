@@ -1,0 +1,32 @@
+version: "3"
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - default
+
+  mysql:
+    image: mysql
+    container_name: mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 123456
+      MYSQL_ROOT_PASSWORD: 123456
+    networks:
+      - default
+
+  redis:
+    image: redis
+    container_name: redis
+    restart: always
+    networks:
+      - default
+    ports:
+      - "6379:6379"
